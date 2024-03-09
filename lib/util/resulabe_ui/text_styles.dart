@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
 
-Color headingTxt = Colors.white;
+Color headingTxt = Colors.black;
 
-textStyle() {
+textStyle({Color? color}) {
   return TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.bold,
-    color: headingTxt,
+    color: color ?? headingTxt,
   );
 }
 
-inputTextStyle() {
+inputTextStyle({Color? color}) {
   return TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: headingTxt,
+    color: color ?? headingTxt,
   );
 }
 
-miniText(Color color) {
+miniText({Color? color}) {
   return TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    color: color,
+    color: color ?? headingTxt,
   );
 }
 
-normalText(Color color) {
+normalText({Color? color}) {
   return TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.bold,
-    color: color,
+    fontWeight: FontWeight.w500,
+    color: color ?? headingTxt,
   );
 }
