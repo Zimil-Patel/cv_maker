@@ -21,8 +21,10 @@ TextEditingController txtPass = TextEditingController();
 TextEditingController txtName = TextEditingController();
 TextEditingController txtLoginEmail = TextEditingController();
 TextEditingController txtLoginPass = TextEditingController();
+final formKey = GlobalKey<FormState>();
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isLoggedin = false;
   bool isOnLogin = users.isEmpty ? false : true;
   bool showPass = false;
   String? email;
@@ -109,114 +111,134 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
             width: width,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Column(
-              children: [
-                //email input  box
-                Row(
-                  children: [
-                    //email icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: Icon(
-                        Icons.email,
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    //email input
-                    Expanded(
-                      child: TextField(
-                        controller: txtLoginEmail,
-                        keyboardType: TextInputType.emailAddress,
-                        cursorColor: Colors.white,
-                        style: inputTextStyle(),
-                        decoration: const InputDecoration(
-                          hintText: 'Email',
-                          hintStyle:
-                              TextStyle(fontSize: 15, color: Colors.grey),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  //email input  box
+                  Row(
+                    children: [
+                      //email icon
+                      const Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: Icon(
+                          Icons.email,
+                          color: Colors.grey,
                         ),
                       ),
-                    ),
-                  ],
-                ),
 
-                //password input box
-                Row(
-                  children: [
-                    //lock icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: Icon(
-                        Icons.lock_rounded,
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    //password input
-                    Expanded(
-                      child: TextField(
-                        controller: txtLoginPass,
-                        keyboardType: TextInputType.visiblePassword,
-                        cursorColor: Colors.white,
-                        obscureText: showPass,
-                        style: inputTextStyle(),
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          hintStyle:
-                              const TextStyle(fontSize: 15, color: Colors.grey),
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                showPass = !showPass;
-                              });
-                            },
-                            child: Icon(
-                              showPass
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.grey,
+                      //email input
+                      Expanded(
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == '' || value!.isEmpty) {
+                              return 'Please enter valid email!';
+                            }
+                            return null;
+                          },
+                          controller: txtLoginEmail,
+                          keyboardType: TextInputType.emailAddress,
+                          cursorColor: Colors.white,
+                          style: inputTextStyle(),
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          decoration: const InputDecoration(
+                            hintText: 'Email',
+                            hintStyle:
+                                TextStyle(fontSize: 15, color: Colors.grey),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
                             ),
                           ),
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          border: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  //password input box
+                  Row(
+                    children: [
+                      //lock icon
+                      const Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: Icon(
+                          Icons.lock_rounded,
+                          color: Colors.grey,
+                        ),
+                      ),
+
+                      //password input
+                      Expanded(
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == '' || value!.isEmpty) {
+                              return 'Please enter valid password!';
+                            }
+                          },
+                          controller: txtLoginPass,
+                          keyboardType: TextInputType.visiblePassword,
+                          cursorColor: Colors.white,
+                          obscureText: showPass,
+                          style: inputTextStyle(),
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            hintStyle: const TextStyle(
+                                fontSize: 15, color: Colors.grey),
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  showPass = !showPass;
+                                });
+                              },
+                              child: Icon(
+                                showPass
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            border: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                //spacer between input box
-                const SizedBox(
-                  height: 14,
-                ),
+                  //spacer between input box
+                  const SizedBox(
+                    height: 14,
+                  ),
 
-                //forgotpass text
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot Password?',
-                      style: GoogleFonts.varelaRound(
-                          textStyle: miniText(blueColor)),
+                  //forgotpass text
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password?',
+                        style: GoogleFonts.varelaRound(
+                            textStyle: miniText(blueColor)),
+                      ),
                     ),
                   ),
-                ),
 
-                //login Button
-                loginBtn(),
-              ],
+                  //login Button
+                  loginBtn(),
+                ],
+              ),
             ),
           ),
         )
@@ -230,11 +252,8 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: EdgeInsets.zero,
       onPressed: () {
         setState(() {
-          email = txtEmail.text.toLowerCase();
-          pass = txtPass.text;
-
-          if (email == "patelzimil2310@gmail.com" && pass == "Zimil1023@") {
-            Navigator.pushReplacementNamed(context, '/home');
+          if (formKey.currentState!.validate()) {
+            verifyAndLogin();
           }
         });
       },
@@ -283,149 +302,161 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
             width: width,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Column(
-              children: [
-                //name input  box
-                Row(
-                  children: [
-                    //person icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    //name input
-                    Expanded(
-                      child: TextField(
-                        controller: txtName,
-                        keyboardType: TextInputType.name,
-                        cursorColor: Colors.white,
-                        style: inputTextStyle(),
-                        decoration: const InputDecoration(
-                          hintText: 'Full name',
-                          hintStyle:
-                              TextStyle(fontSize: 15, color: Colors.grey),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  //name input  box
+                  Row(
+                    children: [
+                      //person icon
+                      const Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.grey,
                         ),
                       ),
-                    ),
-                  ],
-                ),
 
-                //email input  box
-                Row(
-                  children: [
-                    //email icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: Icon(
-                        Icons.email,
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    //email input
-                    Expanded(
-                      child: TextField(
-                        controller: txtEmail,
-                        keyboardType: TextInputType.emailAddress,
-                        cursorColor: Colors.white,
-                        style: inputTextStyle(),
-                        decoration: const InputDecoration(
-                          hintText: 'Email',
-                          hintStyle:
-                              TextStyle(fontSize: 15, color: Colors.grey),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                //password input box
-                Row(
-                  children: [
-                    //lock icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: Icon(
-                        Icons.lock_rounded,
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    //password input
-                    Expanded(
-                      child: TextField(
-                        controller: txtPass,
-                        keyboardType: TextInputType.visiblePassword,
-                        cursorColor: Colors.white,
-                        obscureText: showPass,
-                        style: inputTextStyle(),
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          hintStyle:
-                              const TextStyle(fontSize: 15, color: Colors.grey),
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                showPass = !showPass;
-                              });
-                            },
-                            child: Icon(
-                              showPass
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.grey,
+                      //name input
+                      Expanded(
+                        child: TextFormField(
+                          controller: txtName,
+                          keyboardType: TextInputType.name,
+                          cursorColor: Colors.white,
+                          style: inputTextStyle(),
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          decoration: const InputDecoration(
+                            hintText: 'Full name',
+                            hintStyle:
+                                TextStyle(fontSize: 15, color: Colors.grey),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
                             ),
                           ),
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          border: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  //email input  box
+                  Row(
+                    children: [
+                      //email icon
+                      const Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: Icon(
+                          Icons.email,
+                          color: Colors.grey,
+                        ),
+                      ),
+
+                      //email input
+                      Expanded(
+                        child: TextFormField(
+                          controller: txtEmail,
+                          keyboardType: TextInputType.emailAddress,
+                          cursorColor: Colors.white,
+                          style: inputTextStyle(),
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          decoration: const InputDecoration(
+                            hintText: 'Email',
+                            hintStyle:
+                                TextStyle(fontSize: 15, color: Colors.grey),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                //spacer between input box
-                const SizedBox(
-                  height: 14,
-                ),
+                  //password input box
+                  Row(
+                    children: [
+                      //lock icon
+                      const Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: Icon(
+                          Icons.lock_rounded,
+                          color: Colors.grey,
+                        ),
+                      ),
 
-                //forgotpass text
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot Password?',
-                      style: GoogleFonts.varelaRound(
-                          textStyle: miniText(blueColor)),
+                      //password input
+                      Expanded(
+                        child: TextFormField(
+                          controller: txtPass,
+                          keyboardType: TextInputType.visiblePassword,
+                          cursorColor: Colors.white,
+                          obscureText: showPass,
+                          style: inputTextStyle(),
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            hintStyle: const TextStyle(
+                                fontSize: 15, color: Colors.grey),
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  showPass = !showPass;
+                                });
+                              },
+                              child: Icon(
+                                showPass
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            border: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  //spacer between input box
+                  const SizedBox(
+                    height: 14,
+                  ),
+
+                  //forgotpass text
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password?',
+                        style: GoogleFonts.varelaRound(
+                            textStyle: miniText(blueColor)),
+                      ),
                     ),
                   ),
-                ),
 
-                //sign up button
-                signUpBtn(),
-              ],
+                  //sign up button
+                  signUpBtn(),
+                ],
+              ),
             ),
           ),
         )
@@ -447,21 +478,8 @@ class _LoginScreenState extends State<LoginScreen> {
             Map map = {'name': '$name', 'email': '$email', 'pass': '$pass'};
             users.add(map);
             userLen++;
-            const snackBar = SnackBar(
-              duration: Duration(seconds: 2),
-              content: Text(
-                'Registered Successfully!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            txtEmail.clear();
-            txtPass.clear();
-            txtName.clear();
+            showSnackBar('Registered Successfully!');
+            clearField();
             isOnLogin = true;
           }
         });
@@ -578,6 +596,7 @@ class _LoginScreenState extends State<LoginScreen> {
             onPressed: () {
               setState(() {
                 isOnLogin = false;
+                clearField();
               });
             },
             child: Text(
@@ -604,6 +623,7 @@ class _LoginScreenState extends State<LoginScreen> {
             onPressed: () {
               setState(() {
                 isOnLogin = true;
+                clearField();
               });
             },
             child: Text(
@@ -614,5 +634,60 @@ class _LoginScreenState extends State<LoginScreen> {
         ]),
       ),
     );
+  }
+
+  void verifyAndLogin() {
+    bool isEmailFound = false;
+    int foundAt = 0;
+    String email = txtLoginEmail.text;
+    String pass = txtLoginPass.text;
+
+    for (int i = 0; i <= userLen - 1; i++) {
+      print(users[i]);
+      print('$email $pass');
+      if (email == users[i]['email']) {
+        isEmailFound = true;
+        foundAt = i;
+      }
+    }
+
+    if (isEmailFound) {
+      if (pass == users[foundAt]['pass']) {
+        clearField();
+        Navigator.pushNamed(context, '/home');
+      } else {
+        showSnackBar('Incorrect password');
+      }
+    }
+
+    if (!isEmailFound) {
+      showSnackBar('Email is not registered!');
+    }
+  }
+
+  showSnackBar(String msg) {
+    SnackBar snackBar = SnackBar(
+      duration: const Duration(seconds: 1),
+      content: Text(
+        msg,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  clearField() {
+    txtEmail.clear();
+    txtPass.clear();
+    txtName.clear();
+    txtLoginEmail.clear();
+    txtLoginPass.clear();
+    email = '';
+    pass = '';
+    name = '';
   }
 }

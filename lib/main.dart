@@ -1,3 +1,4 @@
+import 'package:cv_maker/screens/home_ui/home_scr.dart';
 import 'package:cv_maker/screens/login_register_ui/login_reg.dart';
 import 'package:cv_maker/screens/splash_ui/splash_scr.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class CVMaker extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
+        '/home': (context) => const HomeScreen(),
       },
     );
   }
