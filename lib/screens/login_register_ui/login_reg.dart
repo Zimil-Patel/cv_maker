@@ -24,7 +24,6 @@ TextEditingController txtLoginPass = TextEditingController();
 final formKey = GlobalKey<FormState>();
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool isLoggedin = false;
   bool isOnLogin = users.isEmpty ? false : true;
   bool showPass = false;
   String? email;
@@ -136,6 +135,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                             return null;
                           },
+                          onChanged: (value) {
+                            if (value != '') formKey.currentState!.validate();
+                          },
                           controller: txtLoginEmail,
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: Colors.white,
@@ -178,6 +180,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (value == '' || value!.isEmpty) {
                               return 'Please enter valid password!';
                             }
+                          },
+                          onChanged: (value) {
+                            if (value != '') formKey.currentState!.validate();
                           },
                           controller: txtLoginPass,
                           keyboardType: TextInputType.visiblePassword,
@@ -321,6 +326,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       //name input
                       Expanded(
                         child: TextFormField(
+                          validator: (value) {
+                            if (value == '' || value!.isEmpty) {
+                              return 'Please enter valid Name!';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            if (value != '') formKey.currentState!.validate();
+                          },
                           controller: txtName,
                           keyboardType: TextInputType.name,
                           cursorColor: Colors.white,
@@ -359,6 +373,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       //email input
                       Expanded(
                         child: TextFormField(
+                          validator: (value) {
+                            if (value == '' || value!.isEmpty) {
+                              return 'Please enter valid Email!';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            if (value != '') formKey.currentState!.validate();
+                          },
                           controller: txtEmail,
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: Colors.white,
@@ -397,6 +420,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       //password input
                       Expanded(
                         child: TextFormField(
+                          validator: (value) {
+                            if (value == '' || value!.isEmpty) {
+                              return 'Please enter valid pass!';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            if (value != '') formKey.currentState!.validate();
+                          },
                           controller: txtPass,
                           keyboardType: TextInputType.visiblePassword,
                           cursorColor: Colors.white,
@@ -470,6 +502,8 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: EdgeInsets.zero,
       onPressed: () {
         setState(() {
+          formKey.currentState!.validate();
+
           email = txtEmail.text.toLowerCase();
           pass = txtPass.text;
           name = txtName.text;
@@ -636,6 +670,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //verify user and log in
   void verifyAndLogin() {
     bool isEmailFound = false;
     int foundAt = 0;
@@ -643,8 +678,6 @@ class _LoginScreenState extends State<LoginScreen> {
     String pass = txtLoginPass.text;
 
     for (int i = 0; i <= userLen - 1; i++) {
-      print(users[i]);
-      print('$email $pass');
       if (email == users[i]['email']) {
         isEmailFound = true;
         foundAt = i;
@@ -654,6 +687,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (isEmailFound) {
       if (pass == users[foundAt]['pass']) {
         clearField();
+        isLoggedin = true;
         Navigator.pushNamed(context, '/home');
       } else {
         showSnackBar('Incorrect password');

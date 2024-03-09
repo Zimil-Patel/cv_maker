@@ -17,7 +17,7 @@ class CVMaker extends StatelessWidget {
       theme: ThemeData(useMaterial3: true),
 
       //routes of screens
-      initialRoute: '/login',
+      initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
