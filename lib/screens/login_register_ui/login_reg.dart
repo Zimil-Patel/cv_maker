@@ -19,6 +19,8 @@ class LoginScreen extends StatefulWidget {
 TextEditingController txtEmail = TextEditingController();
 TextEditingController txtPass = TextEditingController();
 TextEditingController txtName = TextEditingController();
+TextEditingController txtLoginEmail = TextEditingController();
+TextEditingController txtLoginPass = TextEditingController();
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isOnLogin = users.isEmpty ? false : true;
@@ -124,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     //email input
                     Expanded(
                       child: TextField(
-                        controller: txtEmail,
+                        controller: txtLoginEmail,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Colors.white,
                         style: inputTextStyle(),
@@ -159,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     //password input
                     Expanded(
                       child: TextField(
-                        controller: txtPass,
+                        controller: txtLoginPass,
                         keyboardType: TextInputType.visiblePassword,
                         cursorColor: Colors.white,
                         obscureText: showPass,
@@ -299,7 +301,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Expanded(
                       child: TextField(
                         controller: txtName,
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.name,
                         cursorColor: Colors.white,
                         style: inputTextStyle(),
                         decoration: const InputDecoration(
@@ -439,9 +441,28 @@ class _LoginScreenState extends State<LoginScreen> {
         setState(() {
           email = txtEmail.text.toLowerCase();
           pass = txtPass.text;
+          name = txtName.text;
 
-          if (email == "patelzimil2310@gmail.com" && pass == "Zimil1023@") {
-            Navigator.pushReplacementNamed(context, '/home');
+          if (email != '' && pass != '' && name != '') {
+            Map map = {'name': '$name', 'email': '$email', 'pass': '$pass'};
+            users.add(map);
+            userLen++;
+            const snackBar = SnackBar(
+              duration: Duration(seconds: 2),
+              content: Text(
+                'Registered Successfully!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            txtEmail.clear();
+            txtPass.clear();
+            txtName.clear();
+            isOnLogin = true;
           }
         });
       },

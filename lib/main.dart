@@ -14,7 +14,6 @@ class CVMaker extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      themeMode: ThemeMode.dark,
 
       //routes of screens
       initialRoute: '/login',
