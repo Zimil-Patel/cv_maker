@@ -4,6 +4,7 @@ import 'package:cv_maker/util/resulabe_ui/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 8),
       child: Divider(
         color: Color(0xff4f5054),
-        height: 4,
+        height: 1,
       ),
     );
   }
@@ -130,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
       height: height,
       width: width / 1.5,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(20),
       ),
       child: SingleChildScrollView(
@@ -146,8 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 20,
                   ),
                   CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 55,
+                    backgroundColor: Colors.transparent,
+                    radius: 40,
                     child: Image.asset('asset/images/home/user.png'),
                   ),
                   const SizedBox(
@@ -175,6 +176,27 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             divider(),
+            CupertinoButton(
+              onPressed: () {
+                isLoggedin = false;
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Icon(Icons.logout_outlined),
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Logout',
+                      style: normalText(),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
