@@ -18,18 +18,26 @@ inputTextStyle({Color? color}) {
   );
 }
 
-miniText({Color? color}) {
+miniText({Color? color, FontWeight? bold}) {
   return TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w500,
+    fontWeight: bold ?? FontWeight.w500,
     color: color ?? headingTxt,
   );
 }
 
-normalText({Color? color}) {
+normalText({Color? color, FontWeight? bold}) {
   return TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w500,
+    fontWeight: bold ?? FontWeight.w500,
+    color: color ?? headingTxt,
+  );
+}
+
+ultraMiniText({Color? color, FontWeight? bold}) {
+  return TextStyle(
+    fontSize: 10,
+    fontWeight: bold ?? FontWeight.w500,
     color: color ?? headingTxt,
   );
 }

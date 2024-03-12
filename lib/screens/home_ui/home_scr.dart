@@ -27,7 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryLight,
         shape: const CircleBorder(),
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         onPressed: () {},
       ),
 
@@ -58,20 +61,94 @@ class _HomeScreenState extends State<HomeScreen> {
       //BODY
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //HEADING OF APP
-            addHeading(),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //HEADING OF APP
+              addHeading(),
 
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(
+                height: 20,
+              ),
 
-            createResumeBox(),
-          ],
+              //top banner
+              createResumeBox(),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              //resume records
+              resumeList(),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Column resumeList() {
+    return Column(
+      children: [
+        ...List.generate(
+          users[currentUser]['data'].length,
+          (index) => Container(
+            margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+            decoration: BoxDecoration(
+              color: greyBox,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: CupertinoButton(
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 50,
+                    width: 60,
+                    child: ClipRRect(
+                      child: Image.asset(
+                        'asset/images/home/file.png',
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            users[0]['data'][index]['title'],
+                            style: miniText(bold: FontWeight.w400),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            '${users[0]['data'][index]['date']['day']} ${users[0]['data'][index]['date']['month']} ${users[0]['data'][index]['date']['year']}',
+                            style: ultraMiniText(bold: FontWeight.w300),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.black,
+                      size: 16,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 
@@ -91,7 +168,44 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Row(
         children: [
-          Image.asset('asset/images/home/img1.png'),
+          SizedBox(
+            height: 120,
+            width: 120,
+            child: Image.asset(
+              'asset/images/home/img1.png',
+              fit: BoxFit.contain,
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 70,
+                    width: 70,
+                    child: Image.asset('asset/images/home/img2.png'),
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'CREATE RESUME',
+                        style: normalText(color: Colors.white),
+                      ),
+                      FittedBox(
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          'Create good resume so that you can have a good experience',
+                          style: ultraMiniText(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
