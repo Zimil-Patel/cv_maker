@@ -310,7 +310,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(right: 10),
-                    child: Icon(Icons.logout_outlined),
+                    child: Icon(
+                      Icons.logout_outlined,
+                      color: Colors.black,
+                    ),
                   ),
                   Expanded(
                     child: Text(

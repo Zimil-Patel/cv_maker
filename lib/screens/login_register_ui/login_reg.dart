@@ -142,7 +142,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintStyle:
                               TextStyle(fontSize: 15, color: Colors.grey),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
                           ),
                           border: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -202,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           border: const UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -332,7 +334,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintStyle:
                               TextStyle(fontSize: 15, color: Colors.grey),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           border: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -379,7 +381,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintStyle:
                               TextStyle(fontSize: 15, color: Colors.grey),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           border: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -440,7 +442,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                           border: const UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
