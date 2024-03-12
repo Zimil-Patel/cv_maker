@@ -127,9 +127,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           return null;
                         },
-                        onChanged: (value) {
-                          if (value != '') formKey.currentState!.validate();
-                        },
                         controller: txtLoginEmail,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Colors.black,
@@ -174,9 +171,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (value == '' || value!.isEmpty) {
                             return 'Please enter valid password!';
                           }
-                        },
-                        onChanged: (value) {
-                          if (value != '') formKey.currentState!.validate();
                         },
                         controller: txtLoginPass,
                         keyboardType: TextInputType.visiblePassword,
@@ -319,9 +313,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           return null;
                         },
-                        onChanged: (value) {
-                          if (value != '') formKey.currentState!.validate();
-                        },
                         controller: txtName,
                         keyboardType: TextInputType.name,
                         cursorColor: Colors.black,
@@ -366,9 +357,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           return null;
                         },
-                        onChanged: (value) {
-                          if (value != '') formKey.currentState!.validate();
-                        },
                         controller: txtEmail,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Colors.black,
@@ -412,9 +400,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             return 'Please enter valid pass!';
                           }
                           return null;
-                        },
-                        onChanged: (value) {
-                          if (value != '') formKey.currentState!.validate();
                         },
                         controller: txtPass,
                         keyboardType: TextInputType.visiblePassword,
