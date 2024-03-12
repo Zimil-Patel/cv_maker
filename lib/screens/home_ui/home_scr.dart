@@ -68,21 +68,31 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 20,
             ),
 
-            Container(
-              width: width,
-              height: 160,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    primaryLight,
-                    primaryDark,
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(16),
-              ),
-            ),
+            createResumeBox(),
           ],
         ),
+      ),
+    );
+  }
+
+  //resume box
+  Container createResumeBox() {
+    return Container(
+      width: width,
+      height: 160,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            primaryLight,
+            primaryDark,
+          ],
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Image.asset('asset/images/home/img1.png'),
+        ],
       ),
     );
   }
