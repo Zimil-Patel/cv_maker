@@ -64,6 +64,7 @@ flutter:
   assets:
     - asset/images/loginRegister/
     - asset/images/home/
+    - asset/images/resume/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

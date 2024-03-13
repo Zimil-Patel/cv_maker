@@ -1,4 +1,5 @@
 import 'package:cv_maker/screens/create_resume/create_resume.dart';
+import 'package:cv_maker/screens/create_resume/resume_view.dart';
 import 'package:cv_maker/screens/home_ui/home_scr.dart';
 import 'package:cv_maker/screens/login_register_ui/login_reg.dart';
 import 'package:cv_maker/screens/splash_ui/splash_scr.dart';
@@ -21,12 +22,13 @@ class CVMaker extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       //routes of screens
-      initialRoute: '/home',
+      initialRoute: '/resume',
       routes: {
         '/splash': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
         '/create': (context) => const CreateResume(),
+        '/resume': (context) => const ResumeView(),
       },
     );
   }

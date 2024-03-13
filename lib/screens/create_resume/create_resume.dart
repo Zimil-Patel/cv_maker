@@ -10,7 +10,6 @@ class CreateResume extends StatefulWidget {
 }
 
 class _CreateResumeState extends State<CreateResume> {
-
   late double height, width;
 
   @override
@@ -33,20 +32,20 @@ class _CreateResumeState extends State<CreateResume> {
                   borderRadius: BorderRadiusDirectional.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      blurRadius: 1,
-                      spreadRadius: 1
-                    ),
+                        color: Colors.grey.withOpacity(0.1),
+                        blurRadius: 1,
+                        spreadRadius: 1),
                   ],
                 ),
                 child: Column(
                   children: [
-                    Text('hELLO WORLD', style: normalText(color: Colors.white),),
+                    Text(
+                      'hELLO WORLD',
+                      style: normalText(color: Colors.white),
+                    ),
                   ],
                 ),
               ),
-
-
             ],
           ),
         ),
