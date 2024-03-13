@@ -9,19 +9,37 @@ class ContactInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        contactList(contact: '+91 7041859422', img: 'call'),
-        contactList(contact: 'patelzimil2310@gmail.com', img: 'mail'),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        children: [
+          Text(
+            'Contact',
+            style: miniText(
+              color: resumeColor,
+            ),
+          ),
+          Divider(
+            color: resumeColor,
+            indent: 60,
+            endIndent: 60,
+          ),
+          contactList(contact: '+91 7041859422', img: 'call'),
+          contactList(contact: 'patelzimil2310@gmail.com', img: 'mail'),
+          contactList(
+              contact:
+                  '303-B, sundaram siddhi vinayak, sachin char rasta, surat, gujarat, 394230',
+              img: 'home'),
+        ],
+      ),
     );
   }
 
   contactList({required String img, required String contact}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2.0),
+      padding: const EdgeInsets.symmetric(vertical: 3.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 6.0),
@@ -36,9 +54,12 @@ class ContactInfo extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Text(
-              contact,
-              style: resumeBody(bold: FontWeight.w300),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                contact,
+                style: resumeBody(bold: FontWeight.w300),
+              ),
             ),
           ),
         ],

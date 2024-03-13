@@ -1,6 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/resulabe_ui/text_styles.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({
@@ -16,6 +16,11 @@ class AboutMe extends StatelessWidget {
           style: miniText(
             color: resumeColor,
           ),
+        ),
+        Divider(
+          color: resumeColor,
+          indent: 50,
+          endIndent: 50,
         ),
         Text(
           textAlign: TextAlign.center,
