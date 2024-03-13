@@ -3,8 +3,6 @@ import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:cv_maker/util/resulabe_ui/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
