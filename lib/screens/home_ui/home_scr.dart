@@ -31,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Icons.add,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/create');
+        },
       ),
 
       drawer: customDrawer(),
