@@ -1,5 +1,7 @@
 import 'package:cv_maker/screens/components/resume_components/about_me.dart';
 import 'package:cv_maker/screens/components/resume_components/contact_info.dart';
+import 'package:cv_maker/screens/components/resume_components/expertise_box.dart';
+import 'package:cv_maker/screens/components/resume_components/language_box.dart';
 import 'package:cv_maker/screens/components/resume_components/profile_name_banner.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:flutter/material.dart';
@@ -39,36 +41,62 @@ class _ResumeViewState extends State<ResumeView> {
               ProfileNameBanner(height: height, width: width),
 
               Expanded(
-                child: Container(
-                  color: greyBox,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          color: Colors.white,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Column(
-                              children: [
-                                //About us Box
-                                AboutMe(),
+                child: Stack(
+                  children: [
+                    Container(
+                      color: greyBox,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              color: Colors.white,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Column(
+                                  children: [
+                                    //About us Box
+                                    const AboutMe(),
 
-                                //CONTACT BOX
-                                ContactInfo(),
-                              ],
+                                    //CONTACT BOX
+                                    const ContactInfo(),
+
+                                    //LANGUAGE BOX
+                                    LanguagesKnow(width: width),
+
+                                    //EXPERTISE BOX
+                                    ExpertiseIn(width: width),
+                                  ],
+                                ),
+                              ),
                             ),
+                          ),
+                          Expanded(
+                            flex: 4,
+                            child: Container(
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 24),
+                        height: height / 10,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: componentColor,
+                          borderRadius: const BorderRadius.only(
+                            bottomRight: Radius.circular(100),
+                            topRight: Radius.circular(100),
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 4,
-                        child: Container(
-                          color: Colors.grey,
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               )
             ],
@@ -79,3 +107,17 @@ class _ResumeViewState extends State<ResumeView> {
     ;
   }
 }
+
+
+// Container(
+//                                   margin: const EdgeInsets.only(bottom: 60),
+//                                   height: height / 10,
+//                                   width: 50,
+//                                   decoration: BoxDecoration(
+//                                     color: componentColor,
+//                                     borderRadius: const BorderRadius.only(
+//                                       bottomRight: Radius.circular(100),
+//                                       topRight: Radius.circular(100),
+//                                     ),
+//                                   ),
+//                                 ),
