@@ -47,7 +47,7 @@ class ProfileNameBanner extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Image.asset(
-                            'asset/images/resume/profile2.jpeg',
+                            'asset/images/resume/profile.jpeg',
                             height: 100,
                             width: 100,
                             fit: BoxFit.cover,
