@@ -1,4 +1,3 @@
-import 'package:cv_maker/screens/components/resume_components/about_me.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/resulabe_ui/text_styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -48,7 +47,7 @@ class ProfileNameBanner extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Image.asset(
-                            'asset/images/resume/profile.png',
+                            'asset/images/resume/profile2.jpeg',
                             height: 100,
                             width: 100,
                             fit: BoxFit.cover,
@@ -65,7 +64,7 @@ class ProfileNameBanner extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'RICHARD\n   SANCHEZ',
+                    'OLIVIA\n   WILSON',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w800,

@@ -30,6 +30,7 @@ class ContactInfo extends StatelessWidget {
               contact:
                   '303-B, sundaram siddhi vinayak, sachin char rasta, surat, gujarat, 394230',
               img: 'home'),
+          contactList(contact: 'https://github.com/Zimil-Patel', img: 'github'),
         ],
       ),
     );

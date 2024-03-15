@@ -85,23 +85,42 @@ class _ResumeViewState extends State<ResumeView> {
                                 flex: 4,
                                 child: Container(
                                   color: Colors.white,
-                                  child: Column(
-                                    children: [
-                                      //EXPERIENCE BOX
-                                      Experience(width: width),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8.0, right: 6),
+                                    child: Column(
+                                      children: [
+                                        //EXPERIENCE BOX
+                                        Experience(width: width),
 
-                                      //EDUCATION BOX
-                                      Education(width: width),
+                                        //EDUCATION BOX
+                                        Education(width: width),
 
-                                      //SKILLS SUMMARY
-                                      Skills(width: width),
-                                    ],
+                                        //SKILLS SUMMARY
+                                        Skills(width: width),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           buildLeftHalfCircle(),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                              margin: const EdgeInsets.only(),
+                              height: height / 15,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: componentColor.withOpacity(0.4),
+                                borderRadius: const BorderRadius.only(
+                                  topRight: Radius.circular(100),
+                                  topLeft: Radius.circular(100),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

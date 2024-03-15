@@ -29,7 +29,6 @@ class Skills extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(
-            left: 16.0,
             top: 5,
             bottom: 5,
           ),
@@ -37,12 +36,12 @@ class Skills extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               addSkills(
-                skillName: 'Borcelle skillName',
+                skillName: 'Design Process',
                 percentage: 78,
               ),
               addSkills(
-                skillName: 'Borcelle skillName',
-                percentage: 78,
+                skillName: 'Project Management',
+                percentage: 81,
               ),
             ],
           ),
@@ -58,9 +57,33 @@ class Skills extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          skillName,
-          style: resumeBody(),
+        SizedBox(
+          height: 14,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                '$skillName  ',
+                style: resumeBody(),
+              ),
+              SizedBox(
+                width: 60,
+                height: 4,
+                child: LinearProgressIndicator(
+                  color: resumeColor,
+                  backgroundColor: resumeColor.withOpacity(0.1),
+                  value: percentage / 100,
+                ),
+              ),
+              Text(
+                '  ${percentage.toStringAsFixed(0)} %',
+                style: resumeBody(
+                  fontSize: 11,
+                  bold: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
