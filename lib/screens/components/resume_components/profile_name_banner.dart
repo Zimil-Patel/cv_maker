@@ -88,7 +88,7 @@ class ProfileNameBanner extends StatelessWidget {
               height: height / 10,
               width: 50,
               decoration: BoxDecoration(
-                color: componentColor,
+                color: componentColor.withOpacity(0.4),
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(100),
                   topLeft: Radius.circular(100),

@@ -42,9 +42,9 @@ ultraMiniText({Color? color, FontWeight? bold}) {
   );
 }
 
-resumeBody({Color? color, FontWeight? bold}) {
+resumeBody({Color? color, FontWeight? bold, double? fontSize}) {
   return TextStyle(
-    fontSize: 10,
+    fontSize: fontSize ?? 10,
     fontWeight: bold ?? FontWeight.w300,
     color: color ?? headingTxt,
   );

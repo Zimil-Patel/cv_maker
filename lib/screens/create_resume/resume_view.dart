@@ -1,8 +1,11 @@
 import 'package:cv_maker/screens/components/resume_components/about_me.dart';
 import 'package:cv_maker/screens/components/resume_components/contact_info.dart';
+import 'package:cv_maker/screens/components/resume_components/education_info.dart';
+import 'package:cv_maker/screens/components/resume_components/experience_box.dart';
 import 'package:cv_maker/screens/components/resume_components/expertise_box.dart';
 import 'package:cv_maker/screens/components/resume_components/language_box.dart';
 import 'package:cv_maker/screens/components/resume_components/profile_name_banner.dart';
+import 'package:cv_maker/screens/components/resume_components/skill_info.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +40,7 @@ class _ResumeViewState extends State<ResumeView> {
           ),
           child: Column(
             children: [
-              //TOP BANNE INCLUDIND USER PROFILE NAME AND ROLE
+              //TOP BANNER INCLUDING USER PROFILE NAME AND ROLE
               ProfileNameBanner(height: height, width: width),
 
               Expanded(
@@ -45,55 +48,61 @@ class _ResumeViewState extends State<ResumeView> {
                   children: [
                     Container(
                       color: greyBox,
-                      child: Row(
+                      child: Stack(
                         children: [
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              color: Colors.white,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Column(
-                                  children: [
-                                    //About us Box
-                                    const AboutMe(),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Stack(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            //About us Box
+                                            const AboutMe(),
 
-                                    //CONTACT BOX
-                                    const ContactInfo(),
+                                            //CONTACT BOX
+                                            const ContactInfo(),
 
-                                    //LANGUAGE BOX
-                                    LanguagesKnow(width: width),
+                                            //LANGUAGE BOX
+                                            LanguagesKnow(width: width),
 
-                                    //EXPERTISE BOX
-                                    ExpertiseIn(width: width),
-                                  ],
+                                            //EXPERTISE BOX
+                                            ExpertiseIn(width: width),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+                                  color: Colors.white,
+                                  child: Column(
+                                    children: [
+                                      //EXPERIENCE BOX
+                                      Experience(width: width),
+
+                                      //EDUCATION BOX
+                                      Education(width: width),
+
+                                      //SKILLS SUMMARY
+                                      Skills(width: width),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Expanded(
-                            flex: 4,
-                            child: Container(
-                              color: Colors.grey,
-                            ),
-                          )
+                          buildLeftHalfCircle(),
                         ],
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 24),
-                        height: height / 10,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          color: componentColor,
-                          borderRadius: const BorderRadius.only(
-                            bottomRight: Radius.circular(100),
-                            topRight: Radius.circular(100),
-                          ),
-                        ),
                       ),
                     ),
                   ],
@@ -104,20 +113,23 @@ class _ResumeViewState extends State<ResumeView> {
         ),
       ),
     );
-    ;
+  }
+
+  Align buildLeftHalfCircle() {
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 24),
+        height: height / 10,
+        width: 50,
+        decoration: BoxDecoration(
+          color: componentColor.withOpacity(0.4),
+          borderRadius: const BorderRadius.only(
+            bottomRight: Radius.circular(100),
+            topRight: Radius.circular(100),
+          ),
+        ),
+      ),
+    );
   }
 }
-
-
-// Container(
-//                                   margin: const EdgeInsets.only(bottom: 60),
-//                                   height: height / 10,
-//                                   width: 50,
-//                                   decoration: BoxDecoration(
-//                                     color: componentColor,
-//                                     borderRadius: const BorderRadius.only(
-//                                       bottomRight: Radius.circular(100),
-//                                       topRight: Radius.circular(100),
-//                                     ),
-//                                   ),
-//                                 ),
