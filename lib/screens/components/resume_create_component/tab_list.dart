@@ -1,4 +1,5 @@
 import 'package:cv_maker/screens/create_resume/create_resume.dart';
+import 'package:cv_maker/screens/home_ui/home_scr.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/lists/ui_lists.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,11 +8,15 @@ import 'package:flutter/material.dart';
 class TabList extends StatelessWidget {
   const TabList({
     super.key,
+    required this.height,
+    required this.width,
     required this.currentIndex,
     required this.update,
   });
 
   final int currentIndex;
+  final double height;
+  final double width;
   final ValueChanged<int> update;
 
   @override
@@ -41,7 +46,8 @@ class TabList extends StatelessWidget {
           padding: EdgeInsets.zero,
           onPressed: () => update(index),
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+            padding:
+                EdgeInsets.symmetric(vertical: height / 80, horizontal: 24),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
               border: Border.all(
@@ -52,9 +58,9 @@ class TabList extends StatelessWidget {
             child: Text(
               tabList[index],
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 16,
                 color: selIndex == index ? primaryLight : Colors.grey.shade400,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),

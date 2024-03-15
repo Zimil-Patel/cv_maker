@@ -21,13 +21,13 @@ class ProfileNameBanner extends StatelessWidget {
         Row(
           children: [
             SizedBox(
-              height: height / 5.8,
-              width: width / 2.8,
+              height: 150,
+              width: 150,
               child: Stack(
                 children: [
                   Container(
-                    height: (height / 5.8) / 1.5,
-                    width: (width / 2.8) / 1.5,
+                    height: 120,
+                    width: 120,
                     decoration: BoxDecoration(
                       color: resumeColor,
                     ),
@@ -35,8 +35,8 @@ class ProfileNameBanner extends StatelessWidget {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: Container(
-                      height: (height / 5.8) / 1.3,
-                      width: (width / 2.8) / 1.3,
+                      height: 120,
+                      width: 120,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
@@ -83,7 +83,7 @@ class ProfileNameBanner extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(bottom: 60),
+              margin: const EdgeInsets.only(bottom: 57),
               height: height / 10,
               width: 50,
               decoration: BoxDecoration(

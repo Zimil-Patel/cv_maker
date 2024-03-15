@@ -43,7 +43,7 @@ class TopBar extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: SizedBox(
-                  height: 34,
+                  height: 36,
                   width: 110,
                   child: CupertinoButton(
                     pressedOpacity: 1,

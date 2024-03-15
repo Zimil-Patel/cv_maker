@@ -24,6 +24,7 @@ class _ResumeViewState extends State<ResumeView> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: primaryBgColor,
       body: SafeArea(
         child: Container(
           height: height,
@@ -39,6 +40,7 @@ class _ResumeViewState extends State<ResumeView> {
             ],
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               //TOP BANNER INCLUDING USER PROFILE NAME AND ROLE
               ProfileNameBanner(height: height, width: width),

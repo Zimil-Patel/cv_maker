@@ -32,11 +32,13 @@ class _CreateResumeState extends State<CreateResume> {
             const TopBar(),
 
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
 
             //ALL FIELD/TAB LIST
             TabList(
+              height: height,
+              width: width,
               currentIndex: selIndex,
               update: _update,
             ),

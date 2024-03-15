@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
             decoration: BoxDecoration(
-              color: greyBox,
+              color: Colors.grey.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: CupertinoButton(
@@ -153,60 +153,65 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   //resume box
-  Container createResumeBox() {
-    return Container(
-      width: width,
-      height: 160,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            primaryLight,
-            primaryDark,
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        children: [
-          SizedBox(
-            height: 120,
-            width: 120,
-            child: Image.asset(
-              'asset/images/home/img1.png',
-              fit: BoxFit.contain,
-            ),
+  createResumeBox() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/resume');
+      },
+      child: Container(
+        width: width,
+        height: 160,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              primaryLight,
+              primaryDark,
+            ],
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    height: 70,
-                    width: 70,
-                    child: Image.asset('asset/images/home/img2.png'),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'CREATE RESUME',
-                        style: normalText(color: Colors.white),
-                      ),
-                      FittedBox(
-                        child: Text(
-                          textAlign: TextAlign.center,
-                          'Create good resume so that you can have a good experience',
-                          style: ultraMiniText(color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            SizedBox(
+              height: 120,
+              width: 120,
+              child: Image.asset(
+                'asset/images/home/img1.png',
+                fit: BoxFit.contain,
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      height: 70,
+                      width: 70,
+                      child: Image.asset('asset/images/home/img2.png'),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          'CREATE RESUME',
+                          style: normalText(color: Colors.white),
+                        ),
+                        FittedBox(
+                          child: Text(
+                            textAlign: TextAlign.center,
+                            'Create good resume so that you can have a good experience',
+                            style: ultraMiniText(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
