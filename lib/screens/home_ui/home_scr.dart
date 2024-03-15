@@ -1,6 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/lists/users_data.dart';
-import 'package:cv_maker/util/resulabe_ui/text_styles.dart';
+import 'package:cv_maker/screens/components/common_component/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
