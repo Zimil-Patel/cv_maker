@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: primaryBgColor,
 
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryLight,
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       //APP BAR
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: primaryBgColor,
         leading: Builder(builder: (context) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -255,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
       height: height,
       width: width / 1.5,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
+        color: primaryBgColor.withOpacity(0.9),
         borderRadius: BorderRadius.circular(20),
       ),
       child: SingleChildScrollView(

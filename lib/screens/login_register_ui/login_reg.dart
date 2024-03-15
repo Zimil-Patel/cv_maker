@@ -35,9 +35,10 @@ class _LoginScreenState extends State<LoginScreen> {
     width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: primaryBgColor,
       //appbar
       appBar: AppBar(
+        backgroundColor: primaryBgColor,
         toolbarHeight: 0,
       ),
 
