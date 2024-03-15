@@ -1,11 +1,11 @@
-import 'package:cv_maker/screens/components/resume_components/about_me.dart';
-import 'package:cv_maker/screens/components/resume_components/contact_info.dart';
-import 'package:cv_maker/screens/components/resume_components/education_info.dart';
-import 'package:cv_maker/screens/components/resume_components/experience_box.dart';
-import 'package:cv_maker/screens/components/resume_components/expertise_box.dart';
-import 'package:cv_maker/screens/components/resume_components/language_box.dart';
-import 'package:cv_maker/screens/components/resume_components/profile_name_banner.dart';
-import 'package:cv_maker/screens/components/resume_components/skill_info.dart';
+import 'package:cv_maker/screens/components/resume_view_components/about_me.dart';
+import 'package:cv_maker/screens/components/resume_view_components/contact_info.dart';
+import 'package:cv_maker/screens/components/resume_view_components/education_info.dart';
+import 'package:cv_maker/screens/components/resume_view_components/experience_box.dart';
+import 'package:cv_maker/screens/components/resume_view_components/expertise_box.dart';
+import 'package:cv_maker/screens/components/resume_view_components/language_box.dart';
+import 'package:cv_maker/screens/components/resume_view_components/profile_name_banner.dart';
+import 'package:cv_maker/screens/components/resume_view_components/skill_info.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:flutter/material.dart';
 

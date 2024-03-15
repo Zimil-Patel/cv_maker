@@ -22,7 +22,7 @@ class CVMaker extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       //routes of screens
-      initialRoute: '/resume',
+      initialRoute: '/create',
       routes: {
         '/splash': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
