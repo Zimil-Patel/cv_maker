@@ -1,5 +1,4 @@
 import 'package:cv_maker/screens/create_resume/create_resume.dart';
-import 'package:cv_maker/screens/home_ui/home_scr.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/lists/ui_lists.dart';
 import 'package:flutter/cupertino.dart';
