@@ -1,4 +1,4 @@
-import 'package:cv_maker/screens/create_resume/create_resume.dart';
+import 'package:cv_maker/screens/create_resume_ui/create_resume.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/lists/ui_lists.dart';
 import 'package:flutter/cupertino.dart';
@@ -50,7 +50,7 @@ class TabList extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
               border: Border.all(
-                color: selIndex == index ? primaryLight : Colors.grey.shade400,
+                color: selIndex == index ? primaryDark : Colors.grey.shade400,
                 width: 1.5,
               ),
             ),
@@ -58,7 +58,7 @@ class TabList extends StatelessWidget {
               tabList[index],
               style: TextStyle(
                 fontSize: 16,
-                color: selIndex == index ? primaryLight : Colors.grey.shade400,
+                color: selIndex == index ? primaryDark : Colors.grey.shade400,
                 fontWeight: FontWeight.w700,
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/material.dart';
 
 class Education extends StatelessWidget {
@@ -35,16 +36,17 @@ class Education extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              addEducation(
-                university: 'Borcelle University',
-                course: 'Bachelor of Business Management',
-                duration: '2014-2023',
-              ),
-              addEducation(
-                university: 'Borcelle University',
-                course: 'Master of Business Management',
-                duration: '2014-2018',
-              ),
+              ...List.generate(
+                users[currentUser]['data'][currentObj].education.length,
+                (index) => addEducation(
+                  university: users[currentUser]['data'][currentObj]
+                      .education[index]['university'],
+                  course: users[currentUser]['data'][currentObj]
+                      .education[index]['degree'],
+                  duration: users[currentUser]['data'][currentObj]
+                      .education[index]['year'],
+                ),
+              )
             ],
           ),
         ),

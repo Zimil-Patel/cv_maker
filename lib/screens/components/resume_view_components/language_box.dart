@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/material.dart';
 
 class LanguagesKnow extends StatelessWidget {
@@ -36,9 +37,12 @@ class LanguagesKnow extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              addLanguage(language: 'English'),
-              addLanguage(language: 'Hindi'),
-              addLanguage(language: 'Gujarati'),
+              ...List.generate(
+                users[currentUser]['data'][currentObj].languages.length,
+                (index) => addLanguage(
+                    language: users[currentUser]['data'][currentObj]
+                        .languages[index]),
+              )
             ],
           ),
         ),
@@ -51,7 +55,7 @@ class LanguagesKnow extends StatelessWidget {
       text: TextSpan(
         children: [
           const TextSpan(
-            text: '•',
+            text: '-',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w900,

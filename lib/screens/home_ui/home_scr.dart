@@ -23,14 +23,14 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: primaryBgColor,
 
       floatingActionButton: FloatingActionButton(
-        backgroundColor: primaryLight,
+        backgroundColor: primaryDark,
         shape: const CircleBorder(),
         child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/create');
+          Navigator.of(context).pushReplacementNamed('/create');
         },
       ),
 
@@ -101,7 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: CupertinoButton(
-              onPressed: () {},
+              onPressed: () {
+                currentObj = index;
+                Navigator.of(context).pushReplacementNamed('/resume');
+              },
               padding: EdgeInsets.zero,
               child: Row(
                 children: [
@@ -121,14 +124,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            users[0]['data'][index]['title'],
+                            'Resume Title ${users[currentUser]['data'][index].resumetitle}',
                             style: miniText(bold: FontWeight.w400),
                           ),
                           const SizedBox(
                             height: 4,
                           ),
                           Text(
-                            '${users[0]['data'][index]['date']['day']} ${users[0]['data'][index]['date']['month']} ${users[0]['data'][index]['date']['year']}',
+                            '${18} Feb 2024',
                             style: ultraMiniText(bold: FontWeight.w300),
                           ),
                         ],
@@ -156,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
   createResumeBox() {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/resume');
+        Navigator.of(context).pushReplacementNamed('/create');
       },
       child: Container(
         width: width,
@@ -219,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
   //DIVIDER
   Widget divider() {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 8),
+      padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 14),
       child: Divider(
         color: Color(0xff4f5054),
         height: 1,
@@ -306,6 +309,92 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             divider(),
             CupertinoButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.home,
+                      color: primaryDark,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Home',
+                      style: normalText(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            CupertinoButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.folder_copy,
+                      color: primaryDark,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      'My Resumes',
+                      style: normalText(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            CupertinoButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/rate');
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.star_rate_rounded,
+                      color: primaryDark,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Rate us',
+                      style: normalText(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            CupertinoButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.privacy_tip_rounded,
+                      color: primaryDark,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Privacy policy',
+                      style: normalText(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            CupertinoButton(
               onPressed: () {
                 isLoggedin = false;
                 Navigator.pushReplacementNamed(context, '/login');
@@ -313,11 +402,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(right: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
                     child: Icon(
                       Icons.logout_outlined,
-                      color: Colors.black,
+                      color: primaryDark,
                     ),
                   ),
                   Expanded(

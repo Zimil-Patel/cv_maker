@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
 import 'package:cv_maker/screens/create_resume_ui/create_resume.dart';
 import 'package:cv_maker/util/classes.dart';
@@ -7,7 +5,6 @@ import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({
@@ -53,19 +50,16 @@ class _BottomBarState extends State<BottomBar> {
               saveData();
             },
             padding: EdgeInsets.zero,
-            child: Expanded(
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 60, vertical: 14),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: boxColor,
-                ),
-                child: Text(
-                  'Save All',
-                  style: normalText(
-                    color: Colors.black,
-                  ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 14),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: boxColor,
+              ),
+              child: Text(
+                'Save All',
+                style: normalText(
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -86,7 +80,7 @@ class _BottomBarState extends State<BottomBar> {
                   obj.profession = resumeData.profession;
                   obj.gender = resumeData.gender;
                   obj.objective = resumeData.objective;
-                  obj.img = resumeData.img;
+                  obj.img = imgPath;
                   obj.contact.addAll(resumeData.contact);
                   obj.languages.addAll(resumeData.languages);
                   obj.expertise.addAll(resumeData.expertise);
@@ -101,7 +95,7 @@ class _BottomBarState extends State<BottomBar> {
 
                 if (isSaved && isAdded) {
                   currentObj = users[currentUser]['data'].length - 1;
-                  Navigator.pushNamed(context, '/resume');
+                  Navigator.of(context).pushReplacementNamed('/resume');
                 }
               }
             },
@@ -146,14 +140,14 @@ class _BottomBarState extends State<BottomBar> {
         resumeData.txtAddress.text.isEmpty ||
         imgPath == null ||
         (resumeData.showGithub == true && resumeData.txtGithub.text.isEmpty)) {
-      Fluttertoast.showToast(
-          msg: "Please fill all details!",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.red.withOpacity(0.6),
-          textColor: Colors.white,
-          fontSize: 16.0);
+      const snackBar = SnackBar(
+        backgroundColor: Color(0xffB00020),
+        duration: Duration(seconds: 1),
+        showCloseIcon: true,
+        content: Text('Please fill all details!'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     } else {
       resumeData.resumetitle = resumeData.txtTitle.text == ''
           ? 'Untitled'
@@ -220,14 +214,13 @@ class _BottomBarState extends State<BottomBar> {
         resumeData.img = imgPath;
       }
 
-      Fluttertoast.showToast(
-          msg: "Saved!",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          backgroundColor: primaryDark.withOpacity(0.6),
-          textColor: Colors.white,
-          fontSize: 16.0);
+      const snackBar = SnackBar(
+        duration: Duration(seconds: 1),
+        showCloseIcon: true,
+        content: Text('Saved successfully!'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
       isSaved = true;
     }

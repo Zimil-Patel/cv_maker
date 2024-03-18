@@ -1,3 +1,4 @@
+import 'package:cv_maker/util/classes.dart';
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
@@ -111,11 +112,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     //email icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
                       child: Icon(
                         Icons.email,
-                        color: Colors.grey,
+                        color: primaryDark,
                       ),
                     ),
 
@@ -132,6 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Colors.black,
                         style: inputTextStyle(),
+                        textInputAction: TextInputAction.next,
                         onTapOutside: (event) {
                           FocusManager.instance.primaryFocus!.unfocus();
                         },
@@ -157,11 +159,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     //lock icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
                       child: Icon(
                         Icons.lock_rounded,
-                        color: Colors.grey,
+                        color: primaryDark,
                       ),
                     ),
 
@@ -172,11 +174,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (value == '' || value!.isEmpty) {
                             return 'Please enter valid password!';
                           }
+                          return null;
                         },
                         controller: txtLoginPass,
                         keyboardType: TextInputType.visiblePassword,
                         cursorColor: Colors.black,
                         obscureText: showPass,
+                        textInputAction: TextInputAction.next,
                         style: inputTextStyle(),
                         onTapOutside: (event) {
                           FocusManager.instance.primaryFocus!.unfocus();
@@ -297,11 +301,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     //person icon
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(right: 20),
                       child: Icon(
                         Icons.person,
-                        color: Colors.grey,
+                        color: primaryDark,
                       ),
                     ),
 
@@ -314,6 +318,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           return null;
                         },
+                        textInputAction: TextInputAction.next,
                         controller: txtName,
                         keyboardType: TextInputType.name,
                         cursorColor: Colors.black,
@@ -341,11 +346,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     //email icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
                       child: Icon(
                         Icons.email,
-                        color: Colors.grey,
+                        color: primaryDark,
                       ),
                     ),
 
@@ -359,6 +364,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           return null;
                         },
                         controller: txtEmail,
+                        textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Colors.black,
                         style: inputTextStyle(),
@@ -385,11 +391,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     //lock icon
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
                       child: Icon(
                         Icons.lock_rounded,
-                        color: Colors.grey,
+                        color: primaryDark,
                       ),
                     ),
 
@@ -403,6 +409,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           return null;
                         },
                         controller: txtPass,
+                        textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.visiblePassword,
                         cursorColor: Colors.black,
                         obscureText: showPass,
@@ -481,7 +488,12 @@ class _LoginScreenState extends State<LoginScreen> {
           name = txtName.text;
 
           if (email != '' && pass != '' && name != '') {
-            Map map = {'name': '$name', 'email': '$email', 'pass': '$pass'};
+            Map map = {
+              'name': '$name',
+              'email': '$email',
+              'pass': '$pass',
+              'data': <ResumeData>[]
+            };
             users.add(map);
             userLen++;
             showSnackBar('Registered Successfully!');

@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/material.dart';
 
 class ExpertiseIn extends StatelessWidget {
@@ -33,12 +34,12 @@ class ExpertiseIn extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              addname(name: 'Managment Skills'),
-              addname(name: 'Creativity'),
-              addname(name: 'Digital Marketing'),
-              addname(name: 'Negotiation'),
-              addname(name: 'Critical Thinking'),
-              addname(name: 'Leadership'),
+              ...List.generate(
+                users[currentUser]['data'][currentObj].expertise.length,
+                (index) => addname(
+                    name: users[currentUser]['data'][currentObj]
+                        .expertise[index]),
+              )
             ],
           ),
         ),
@@ -51,7 +52,7 @@ class ExpertiseIn extends StatelessWidget {
       text: TextSpan(
         children: [
           const TextSpan(
-            text: '•',
+            text: '-',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w900,

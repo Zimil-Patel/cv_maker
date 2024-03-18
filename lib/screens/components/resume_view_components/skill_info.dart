@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/material.dart';
 
 class Skills extends StatelessWidget {
@@ -35,14 +36,15 @@ class Skills extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              addSkills(
-                skillName: 'Design Process',
-                percentage: 78,
-              ),
-              addSkills(
-                skillName: 'Project Management',
-                percentage: 81,
-              ),
+              ...List.generate(
+                users[currentUser]['data'][currentObj].skills.length,
+                (index) => addSkills(
+                  skillName: users[currentUser]['data'][currentObj]
+                      .skills[index]['skill'],
+                  percentage: users[currentUser]['data'][currentObj]
+                      .skills[index]['percentage'],
+                ),
+              )
             ],
           ),
         ),
@@ -52,7 +54,7 @@ class Skills extends StatelessWidget {
 
   addSkills({
     required String skillName,
-    required double percentage,
+    required int percentage,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -39,6 +39,7 @@ SizedBox addField(
             child: TextFormField(
               keyboardType: inputType ?? TextInputType.multiline,
               controller: controller,
+              textInputAction: TextInputAction.done,
               style: const TextStyle(color: Colors.black),
               maxLines: maxLine ?? 1,
               minLines: 1,

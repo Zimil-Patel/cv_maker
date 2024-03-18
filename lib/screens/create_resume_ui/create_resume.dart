@@ -5,7 +5,6 @@ import 'package:cv_maker/screens/components/resume_create_component/add_field.da
 import 'package:cv_maker/screens/components/resume_create_component/app_bar.dart';
 import 'package:cv_maker/screens/components/resume_create_component/bottom_bar.dart';
 import 'package:cv_maker/screens/components/resume_create_component/tab_list.dart';
-import 'package:cv_maker/screens/home_ui/home_scr.dart';
 import 'package:cv_maker/util/classes.dart';
 import 'package:flutter/rendering.dart';
 import 'package:image_picker/image_picker.dart';

@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -46,8 +47,8 @@ class ProfileNameBanner extends StatelessWidget {
                         backgroundColor: resumeColor,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
-                          child: Image.asset(
-                            'asset/images/resume/profile.jpeg',
+                          child: Image.file(
+                            users[currentUser]['data'][currentObj].img,
                             height: 100,
                             width: 100,
                             fit: BoxFit.cover,
@@ -64,7 +65,7 @@ class ProfileNameBanner extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'OLIVIA\n   WILSON',
+                    '${users[currentUser]['data'][currentObj].firstName}\n   ${users[currentUser]['data'][currentObj].lastName}',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w800,
@@ -73,7 +74,7 @@ class ProfileNameBanner extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'Product Designer',
+                      '${users[currentUser]['data'][currentObj].profession}',
                       style: ultraMiniText(
                         color: resumeColor,
                       ),

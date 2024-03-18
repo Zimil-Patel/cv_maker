@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/material.dart';
 
 class Experience extends StatelessWidget {
@@ -35,24 +36,19 @@ class Experience extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              addExperience(
-                  company: 'Studio Showde',
-                  location: 'Canberra - Australia',
-                  duration: '2020-2022',
-                  aboutExp:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet quam rhoncus, egestas dui eget, malesuada justo. Ut aliquam augue.'),
-              addExperience(
-                  company: 'Elsetown Cor.',
-                  location: 'Kota Baru - Singapore',
-                  duration: '2016-2020',
-                  aboutExp:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet quam rhoncus, egestas dui eget, malesuada justo. Ut aliquam augue.'),
-              addExperience(
-                  company: 'Studio Showde',
-                  location: 'sydney - Australia',
-                  duration: '2010 - 2015',
-                  aboutExp:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet quam rhoncus, egestas dui eget, malesuada justo. Ut aliquam augue.'),
+              ...List.generate(
+                users[currentUser]['data'][currentObj].experience.length,
+                (index) => addExperience(
+                  company: users[currentUser]['data'][currentObj]
+                      .experience[index]['company'],
+                  location: users[currentUser]['data'][currentObj]
+                      .experience[index]['location'],
+                  duration: users[currentUser]['data'][currentObj]
+                      .experience[index]['year'],
+                  aboutExp: users[currentUser]['data'][currentObj]
+                      .experience[index]['about'],
+                ),
+              )
             ],
           ),
         ),

@@ -49,3 +49,11 @@ resumeBody({Color? color, FontWeight? bold, double? fontSize}) {
     color: color ?? headingTxt,
   );
 }
+
+primaryText() {
+  return const TextStyle(
+    color: Colors.grey,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+}

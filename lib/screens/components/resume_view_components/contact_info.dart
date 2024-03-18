@@ -1,5 +1,6 @@
 import 'package:cv_maker/util/colors/colors.dart';
 import 'package:cv_maker/screens/components/common_component/text_styles.dart';
+import 'package:cv_maker/util/lists/users_data.dart';
 import 'package:flutter/material.dart';
 
 class ContactInfo extends StatelessWidget {
@@ -24,13 +25,21 @@ class ContactInfo extends StatelessWidget {
             indent: 60,
             endIndent: 60,
           ),
-          contactList(contact: '+91 7041859422', img: 'call'),
-          contactList(contact: 'patelzimil2310@gmail.com', img: 'mail'),
           contactList(
-              contact:
-                  '303-B, sundaram siddhi vinayak, sachin char rasta, surat, gujarat, 394230',
+              contact: '${users[currentUser]['data'][currentObj].contact[0]}',
+              img: 'call'),
+          contactList(
+              contact: '${users[currentUser]['data'][currentObj].contact[1]}',
+              img: 'mail'),
+          contactList(
+              contact: '${users[currentUser]['data'][currentObj].contact[2]}',
               img: 'home'),
-          contactList(contact: 'https://github.com/Zimil-Patel', img: 'github'),
+          users[0]['data'][currentObj].showGithub == true
+              ? contactList(
+                  contact:
+                      '${users[currentUser]['data'][currentObj].contact[3]}',
+                  img: 'github')
+              : const SizedBox(),
         ],
       ),
     );
@@ -40,7 +49,7 @@ class ContactInfo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 6.0),
