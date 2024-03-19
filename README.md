@@ -21,3 +21,9 @@ A new Flutter project.
 
 
 <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp16-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp17-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp18-portrait.png" width = "240" height = "500">
+
+
+
+https://github.com/Zimil-Patel/cv_maker/assets/112332000/4ea8466e-7891-4985-be29-4aa0054b4bfe.mp4
+
+
