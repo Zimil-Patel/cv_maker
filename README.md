@@ -14,7 +14,7 @@ A new Flutter project.
 <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp7-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp8-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp9-portrait.png" width = "240" height = "500">
 
 
-<img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp10-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp11-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp12-portrait.png" width = "240" height = "500">
+<img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp10-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp11-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp12.png" width = "240" height = "500">
 
 
 <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp13-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp14-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp15-portrait.png" width = "240" height = "500">
