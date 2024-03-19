@@ -672,11 +672,10 @@ class _ResumeViewState extends State<ResumeView> {
               children: [
                 //TOP BANNER INCLUDING USER PROFILE NAME AND ROLE
                 SizedBox(
-                height: 160,
-                child: ProfileNameBanner(height: height, width: width)),
+                    height: 150,
+                    child: ProfileNameBanner(height: height, width: width)),
 
                 Expanded(
-
                   child: Stack(
                     children: [
                       Stack(

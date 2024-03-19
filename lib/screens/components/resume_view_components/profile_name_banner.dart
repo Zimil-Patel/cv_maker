@@ -84,7 +84,7 @@ class ProfileNameBanner extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(bottom: 57),
+              margin: const EdgeInsets.only(bottom: 58),
               height: height / 10,
               width: 50,
               decoration: BoxDecoration(

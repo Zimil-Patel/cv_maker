@@ -620,7 +620,7 @@ class _CreateResumeState extends State<CreateResume> {
                     Expanded(
                       child: addField(
                         addWidth: false,
-                        hintText: '',
+                        hintText: 'Language',
                         controller: resumeData.languageControllerList[index],
                       ),
                     ),

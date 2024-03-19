@@ -47,25 +47,6 @@ class _BottomBarState extends State<BottomBar> {
         children: [
           CupertinoButton(
             onPressed: () {
-              saveData();
-            },
-            padding: EdgeInsets.zero,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 14),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: boxColor,
-              ),
-              child: Text(
-                'Save All',
-                style: normalText(
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
-          CupertinoButton(
-            onPressed: () {
               if (widget.currentIndex < 6) {
                 int index = widget.currentIndex + 1;
 
@@ -159,24 +140,27 @@ class _BottomBarState extends State<BottomBar> {
       resumeData.objective = resumeData.txtObjective.text;
       resumeData.gender = genderValue == 0 ? 'Male' : 'Female';
 
+      //languages
       resumeData.languages.clear();
+
       resumeData.languages =
           resumeData.languageControllerList.map((e) => e.text).toList();
+      resumeData.languageControllerList.clear();
 
-      resumeData.languages.clear();
-      resumeData.languages =
-          resumeData.languageControllerList.map((e) => e.text).toList();
-
+      //expertise
       resumeData.expertise.clear();
       resumeData.expertise =
           resumeData.expertiseControllerList.map((e) => e.text).toList();
+      resumeData.expertiseControllerList.clear();
 
+      //contact
       resumeData.contact.clear();
       resumeData.contact.add(resumeData.txtMobile.text);
       resumeData.contact.add(resumeData.txtEmail.text);
       resumeData.contact.add(resumeData.txtAddress.text);
       resumeData.contact.add(resumeData.txtGithub.text);
 
+      //experience
       resumeData.experience.clear();
       for (int i = 0; i < resumeData.experienceControllerList.length; i++) {
         Map map = {
@@ -188,6 +172,7 @@ class _BottomBarState extends State<BottomBar> {
 
         resumeData.experience.add(map);
       }
+      resumeData.experienceControllerList.clear();
 
       resumeData.education.clear();
       for (int i = 0; i < resumeData.educationControllerList.length; i++) {
@@ -200,6 +185,7 @@ class _BottomBarState extends State<BottomBar> {
 
         resumeData.education.add(map);
       }
+      resumeData.educationControllerList.clear();
 
       resumeData.skills.clear();
       for (int i = 0; i < resumeData.skillControllerList.length; i++) {
@@ -210,9 +196,10 @@ class _BottomBarState extends State<BottomBar> {
         };
 
         resumeData.skills.add(map);
-
-        resumeData.img = imgPath;
       }
+      resumeData.skillControllerList.clear();
+
+      resumeData.img = imgPath;
 
       const snackBar = SnackBar(
         duration: Duration(seconds: 1),
