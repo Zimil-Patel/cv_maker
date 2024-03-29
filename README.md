@@ -4,6 +4,8 @@ A new Flutter project.
 
 ## Getting Started
 
+<img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/splash.png" width = "240" height = "500">
+
 
 <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp1-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp2-portrait.png" width = "240" height = "500"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/cv_maker/blob/main/mockup/snp3-portrait.png" width = "240" height = "500">
 
